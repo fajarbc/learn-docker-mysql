@@ -5,9 +5,9 @@ docker image ls
 
 *if image mysql did NOT exists*
 
-* to create image `mysql`
+* to pull image `mysql`
 ```
-docker build mysql .
+docker pull mysql
 ```
 
 * check if volume `mysql_data` exists
