@@ -1,3 +1,5 @@
+How to run MySQL in Docker and using volumes to create persistent data.
+
 * check if image mysql already exists?
 ```
 docker image ls
@@ -25,13 +27,13 @@ docker volume rm mysql_data
 docker volume create mysql_data 
 ```
 
-* to run image `mysql` in detach (in background) mode and expose port(s) *3306*, attach volume mysql_data to `/var/lib/mysql` dengan password `rahasia` (untuk best practice input password, lihat dokumentasi mysql di docker hub)
+* to run image `mysql` as a container (for the first time) in detach (in background) mode and expose port(s) *3306*, attach volume mysql_data to `/var/lib/mysql` with password `rahasia` (for the best practice on input password, see documentation page of mysql image in docker hub, topics called secret). This is only run at the first time, the next time you only need command to start the container.
 ```
 docker run --name mysql -p 3306:3306 -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=rahasia -d mysql:latest 
 ```
 
 * check if database connection is made
-assume that you have webserver running, just check the connection in database.php or if you have installed php in your machine you may try to run
+assumes that you have webserver running, just check the connection in database.php or if you have installed php in your machine you may try to run
 ```
 php connection.php
 ```
@@ -42,6 +44,26 @@ php data.php
 
 ![image](https://user-images.githubusercontent.com/31872453/126221383-25a06d15-a06b-44b1-8cc1-3fb85260753c.png)
 
+
+* to start container `mysql`
+```
+docker container start mysql
+```
+
+* to restart container `mysql`
+```
+docker container restart mysql
+```
+
+* to stop container `mysql`
+```
+docker container stop mysql
+```
+
+* to remove the mysql (would not erase the volume)
+```
+docker container rm mysql
+```
 
 * to dump (backup) database container `mysql` , database `db_users`, -proot means `rahasia` is the password (it is not safe, but yeah it woks for simplicity), `db_users.sql` is the file name output (can be full directory to your local machine)
 ```
