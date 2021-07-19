@@ -7,7 +7,7 @@ docker image ls
 
 * to create image `mysql`
 ```
-docker build my-nginx-app .
+docker build mysql .
 ```
 
 * check if volume `mysql_data` exists
