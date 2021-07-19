@@ -40,6 +40,7 @@ or to check your data in in `db_users.tb_users`
 php data.php
 ```
 
+![image](https://user-images.githubusercontent.com/31872453/126221383-25a06d15-a06b-44b1-8cc1-3fb85260753c.png)
 
 
 * to dump (backup) database container `mysql` , database `db_users`, -proot means `rahasia` is the password (it is not safe, but yeah it woks for simplicity), `db_users.sql` is the file name output (can be full directory to your local machine)
