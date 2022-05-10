@@ -76,3 +76,6 @@ If you want run mysql with no root password, create container with this command
 ```bash
 docker run --name mysql -p 3306:3306 -v mysql_data:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql:latest
 ```
+```bash
+docker run --name mysql -p 3306:3306 -v mysql_data:/var/lib/mysql -v ${pwd}/mysql/conf.d/=/etc/mysql/conf.d -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql:latest
+```
